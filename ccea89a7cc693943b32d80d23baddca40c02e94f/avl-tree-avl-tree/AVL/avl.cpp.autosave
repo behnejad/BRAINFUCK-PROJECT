@@ -1,0 +1,14 @@
+#include "avl.h"
+
+AVL::AVL()
+{
+}
+
+int AVL::height(Node * n ){
+    if (n==NULL){
+        return 0 ;
+    }
+    return n->height;
+}
+
+

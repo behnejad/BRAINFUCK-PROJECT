@@ -1,0 +1,14 @@
+#ifndef NODE_H
+#define NODE_H
+
+class Node
+{
+    // An AVL tree node class
+public:
+    int key ;
+    Node * right;
+    Node * left;
+    int height ;
+};
+
+#endif // NODE_H
