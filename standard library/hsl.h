@@ -6,8 +6,37 @@ INCLUDE			io.h
 EXTRN			isPrimeProc	:	PROC,
 				bubbleProc	:	PROC,
 				facProc		:	PROC,
-				selectionProc:  PROC	
+				selectionProc: 	PROC,
+				fibProc		:	PROC
 
+;------------------------------------------------------------------
+fibonachi		MACRO	 source; becareful this proc changing ecx
+				
+				LOCAL	L1
+				LOCAL	L2
+				
+				IFB		<source>
+				.ERR	<missing operand in fibinachi>
+				EXITM
+				ENDIF
+
+				cmp		source, 2
+				jbe		L1
+
+				dec		source
+				push	source
+				call	fibProc
+				mov		edx, eax
+				dec		source
+				push	source
+				call	fibProc
+				add		edx, eax
+				mov		source, edx
+				jmp		L2
+	L1:
+				mov		source, 1
+	L2:
+				ENDM
 ;------------------------------------------------------------------
 selection		MACRO	source, count
 
