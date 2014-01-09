@@ -8,6 +8,7 @@ n			DWORD	10
 list_end	DWORD	0
 array		DWORD	9,8,7,6,0,4,3,2,1,5, 0
 string		BYTE	11 DUP(?), 0dh, 0ah, 0
+
 .CODE
 _main		PROC
 
@@ -29,8 +30,6 @@ _main		PROC
 			output	string
 			loop	L4
 
-
-			mov		eax, 0	
 			ret
 _main		ENDP
 END

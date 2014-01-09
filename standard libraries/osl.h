@@ -1,6 +1,6 @@
 ; Omid Davoodi's standard library, header file
 .NOLIST     ; turn off listing
-.686
+.586
 
             EXTRN  oqtoaproc:near32
 			

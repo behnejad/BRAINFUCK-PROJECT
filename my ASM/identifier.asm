@@ -1,11 +1,10 @@
-.386
+.686
 .MODEL		FLAT
 .STACK		4096
 INCLUDE		io.h
 .DATA
 prompt		BYTE	"enter your string: ", 0
-string		BYTE	24 DUP(' '), 0
-address		DWORD	?
+string		BYTE	24 DUP(' ')
 yes			BYTE	"this could be an identifier", 0dh, 0ah, 0
 noo			BYTE	"this could not be an identifier", 0dh, 0ah, 0
 
@@ -22,7 +21,6 @@ _main		PROC
 			jbe		endof
 			cmp		BYTE PTR [edx], '@'
 			je		endof
-					
 
 			mov		ecx, 22			
 	lo:
@@ -39,9 +37,10 @@ _main		PROC
 			
 ou:			output	yes
 			jmp		endof3
-endof:		output	noo					
-endof3:		xor		eax, eax
 			ret
+
+endof:		output	noo					
+endof3:		ret
 _main		ENDP
 ;-----------------------------------------------
 check		PROC		; push char[ebp+8][=ascii], change ebx[1=ok, 2= no]

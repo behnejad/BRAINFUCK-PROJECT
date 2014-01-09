@@ -12,7 +12,6 @@ ten			BYTE	10
 
 .CODE
 _main		PROC
-				
 			input	prompt, 11
 			atod	prompt
 			mov		num1, eax
@@ -29,7 +28,6 @@ _main		PROC
 _main		ENDP
 ;--------------------------------------------
 _start		PROC
-
 			mov		eax, num1
 			cdq
 			idiv	num2

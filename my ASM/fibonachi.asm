@@ -56,7 +56,8 @@ fib			PROC
 
 	b:
 			mov		eax, 1
-	b5:		pop		edx
+	b5:		
+			pop		edx
 			pop		ebx
 			pop		ebp
 			ret		4

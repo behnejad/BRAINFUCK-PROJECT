@@ -41,7 +41,7 @@ Lexit:
 next:		
 			loop	here
 			output	result
-			mov		eax, 0
+			xor		eax, eax
 			ret
 main		ENDP
 END

@@ -1,4 +1,7 @@
+; Hooman Behnejad's standard Library
+
 PUBLIC		isPrimeProc, bubbleProc, facProc, selectionProc
+.586
 .MODEL		FLAT
 .CODE
 ;--------------------------------------------------------

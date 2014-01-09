@@ -11,10 +11,9 @@ string		BYTE	11 DUP(?), cr, lf, 0
 .CODE
 _main		PROC
 			nop
-			;output	prompt
-			;input	string, 11
-			;atod	string
-			mov		eax, 8
+			output	prompt
+			input	string, 11
+			atod	string
 			factorial	eax
 			dtoa	string, eax
 			output	string

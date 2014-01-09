@@ -1,6 +1,7 @@
-; in macro if you use label you must declear as this : LOCAL [label]
+;Hooman Behnejad's standard Library
 ;-------------------------------------------------------------------
 .NOLIST
+.586
 INCLUDE			io.h
 EXTRN			isPrimeProc	:	PROC,
 				bubbleProc	:	PROC,
@@ -8,8 +9,7 @@ EXTRN			isPrimeProc	:	PROC,
 				selectionProc:  PROC	
 
 ;------------------------------------------------------------------
-selection		MACRO	source, count ;this will give count * 4 [10 number of element equal to 40 mjst push]
-									  ;and source must be address or offset
+selection		MACRO	source, count
 
 				IFB		<source>
 				.ERR	<missing operand(s) in selection>
@@ -27,8 +27,7 @@ selection		MACRO	source, count ;this will give count * 4 [10 number of element e
 
 				ENDM
 ;------------------------------------------------------------------
-isPrime			MACRO	source		;this is macro to determine that the source is prime or not
-									;if it is prime ebx will change to 1 and if not it will change to 2
+isPrime			MACRO	source	
 				
 				IFB		<source>
 				.ERR	<missing operand(s) in isPrime>
@@ -46,7 +45,7 @@ isPrime			MACRO	source		;this is macro to determine that the source is prime or 
 
 				ENDM
 ;------------------------------------------------------------------
-AddToList		MACRO	source, desIndex, tempstr	;[source is DWORD],[destination is array]
+AddToList		MACRO	source, desIndex, tempstr
 
 				IFB		<source>
 				.ERR	<missing operand(s) in AddToList>
