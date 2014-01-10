@@ -7,8 +7,72 @@ EXTRN			isPrimeProc	:	PROC,
 				bubbleProc	:	PROC,
 				facProc		:	PROC,
 				selectionProc: 	PROC,
-				fibProc		:	PROC
+				fibProc		:	PROC,
+				divProc		:	PROC
+				;matrixProc	:	PROC, 
+				
 
+;------------------------------------------------------------------
+division		MACRO	target, first, second, long
+
+				IFB		<target>
+				.ERR	<missing operand(s) in division>
+				EXITM
+				ENDIF
+
+				IFB		<first>
+				.ERR	<missing operand(s) in division>
+				EXITM
+				ENDIF
+
+				IFB		<second>
+				.ERR	<missing operand(s) in division>
+				EXITM
+				ENDIF
+
+				IFB		<long>
+				.ERR	<missing operand(s) in division>
+				EXITM
+				ENDIF
+				
+				push	10
+				push	long
+				push	offset target
+				push	first
+				push	second
+				call	divProc
+
+				ENDM
+;------------------------------------------------------------------
+mulMatrix		MACRO	first, second, destination, count
+				
+				IFB		<first>
+				.ERR	<missing operand(s) in mulMatrix>
+				EXITM
+				ENDIF
+
+				IFB		<source>
+				.ERR	<missing operand(s) in mulMatrix>
+				EXITM
+				ENDIF
+				
+				IFB		<source>
+				.ERR	<missing operand(s) in mulMatrix>
+				EXITM
+				ENDIF
+
+				IFB		<count>
+				.ERR	<missing operand(s) in mulMatrix>
+				EXITM
+				ENDIF
+
+				push	count
+				push	destination
+				push	second
+				push	first
+				call	matrixProc
+
+				ENDM
 ;------------------------------------------------------------------
 fibonachi		MACRO	 source; becareful this proc changing ecx
 				
