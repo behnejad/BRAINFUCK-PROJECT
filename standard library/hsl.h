@@ -2,16 +2,14 @@
 ;-------------------------------------------------------------------
 .NOLIST
 .586
-INCLUDE			io.h
 EXTRN			isPrimeProc	:	PROC,
 				bubbleProc	:	PROC,
 				facProc		:	PROC,
 				selectionProc: 	PROC,
 				fibProc		:	PROC,
-				divProc		:	PROC
-				;matrixProc	:	PROC, 
+				divProc		:	PROC,
+				matrixProc	:	PROC
 				
-
 ;------------------------------------------------------------------
 division		MACRO	target, first, second, long
 
@@ -65,7 +63,7 @@ mulMatrix		MACRO	first, second, destination, count
 				.ERR	<missing operand(s) in mulMatrix>
 				EXITM
 				ENDIF
-
+				
 				push	count
 				push	destination
 				push	second
