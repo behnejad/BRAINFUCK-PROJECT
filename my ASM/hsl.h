@@ -2,12 +2,103 @@
 ;-------------------------------------------------------------------
 .NOLIST
 .586
-INCLUDE			io.h
 EXTRN			isPrimeProc	:	PROC,
 				bubbleProc	:	PROC,
 				facProc		:	PROC,
-				selectionProc:  PROC	
+				selectionProc: 	PROC,
+				fibProc		:	PROC,
+				divProc		:	PROC,
+				matrixProc	:	PROC
+				
+;------------------------------------------------------------------
+division		MACRO	target, first, second, long
 
+				IFB		<target>
+				.ERR	<missing operand(s) in division>
+				EXITM
+				ENDIF
+
+				IFB		<first>
+				.ERR	<missing operand(s) in division>
+				EXITM
+				ENDIF
+
+				IFB		<second>
+				.ERR	<missing operand(s) in division>
+				EXITM
+				ENDIF
+
+				IFB		<long>
+				.ERR	<missing operand(s) in division>
+				EXITM
+				ENDIF
+				
+				push	10
+				push	long
+				push	offset target
+				push	first
+				push	second
+				call	divProc
+
+				ENDM
+;------------------------------------------------------------------
+mulMatrix		MACRO	first, second, destination, count
+				
+				IFB		<first>
+				.ERR	<missing operand(s) in mulMatrix>
+				EXITM
+				ENDIF
+
+				IFB		<source>
+				.ERR	<missing operand(s) in mulMatrix>
+				EXITM
+				ENDIF
+				
+				IFB		<source>
+				.ERR	<missing operand(s) in mulMatrix>
+				EXITM
+				ENDIF
+
+				IFB		<count>
+				.ERR	<missing operand(s) in mulMatrix>
+				EXITM
+				ENDIF
+				
+				push	count
+				push	destination
+				push	second
+				push	first
+				call	matrixProc
+
+				ENDM
+;------------------------------------------------------------------
+fibonachi		MACRO	 source; becareful this proc changing ecx
+				
+				LOCAL	L1
+				LOCAL	L2
+				
+				IFB		<source>
+				.ERR	<missing operand in fibinachi>
+				EXITM
+				ENDIF
+
+				cmp		source, 2
+				jbe		L1
+
+				dec		source
+				push	source
+				call	fibProc
+				mov		edx, eax
+				dec		source
+				push	source
+				call	fibProc
+				add		edx, eax
+				mov		source, edx
+				jmp		L2
+	L1:
+				mov		source, 1
+	L2:
+				ENDM
 ;------------------------------------------------------------------
 selection		MACRO	source, count
 

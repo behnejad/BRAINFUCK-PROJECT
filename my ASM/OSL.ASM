@@ -1,6 +1,6 @@
 ; Omid Davoodi's standard library
 
-.686
+.586
 .MODEL FLAT, syscall
 
 PUBLIC oqtoaproc
