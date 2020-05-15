@@ -1,0 +1,6 @@
+Hi There!
+My Name Is Pooya Mahsouri. I'm From Iran And I'm 21 years old.
+It is my first use of kernel32.lib
+DATA 1/25/2012
+:)
+It Is nice To Meet You kernel32.lib

@@ -1,0 +1,6 @@
+Using OS Functions!
+Using kernel32.lib For First Time! It Is Good And I Handled It!
+:)
+SynoN.SayeroN
+1/25/2012
+8:19 AM
